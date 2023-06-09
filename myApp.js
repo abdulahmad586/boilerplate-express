@@ -2,6 +2,7 @@ require('dotenv').config()
 let express = require('express');
 let app = express();
 
+app.use(loggerMiddleWare);
 app.use("/public", express.static(__dirname+"/public"));
 
 app.get("/", (req,res)=>{
@@ -15,11 +16,10 @@ app.get("/json", (req,res)=>{
   res.json({message: messageStyle == "uppercase" ? message.toUpperCase() : message });
 })
 
-
-
-
-
-
+function loggerMiddleWare(req,res,next){
+  console.log(req.method+" "+req.path+" - "+req.ip)
+  next()
+}
 
 
 
