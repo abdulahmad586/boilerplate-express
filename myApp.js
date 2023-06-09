@@ -23,6 +23,11 @@ app.get("/now",(req,res,next)=>{
   res.json({time: req.time });
 })
 
+app.get("/:word/echo",(req,res)=>{
+  
+  res.json({word: req.params.word});
+})
+
 function loggerMiddleWare(req,res,next){
   console.log(req.method+" "+req.path+" - "+req.ip)
   next()
