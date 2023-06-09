@@ -1,7 +1,10 @@
 require('dotenv').config()
+const bodyParser = require("body-parser");
+
 let express = require('express');
 let app = express();
 
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(loggerMiddleWare);
 app.use("/public", express.static(__dirname+"/public"));
 
