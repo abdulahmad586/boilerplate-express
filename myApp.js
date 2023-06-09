@@ -23,6 +23,10 @@ app.get("/now",(req,res,next)=>{
   res.json({time: req.time });
 })
 
+app.get("/name",(req,res)=>{
+  res.json({name: req.query.firstname+" "+req.lastname.query });
+})
+
 app.get("/:word/echo",(req,res)=>{
   
   res.json({echo: req.params.word});
