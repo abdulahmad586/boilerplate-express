@@ -24,7 +24,7 @@ app.get("/now",(req,res,next)=>{
 })
 
 app.get("/name",(req,res)=>{
-  res.json({name: req.query.firstname+" "+req.lastname.query });
+  res.json({name: req.query.first+" "+req.last.query });
 })
 
 app.get("/:word/echo",(req,res)=>{
